@@ -19,16 +19,30 @@ using namespace std;
 
 int main ()
 {
+    //enter number of players ;
+
     cout<<"enter the number of players please : ";
     int number ;
     cin>> number ; 
+
+    //check for numver of players ; 
+
     while (number <2||number>4 )
     {
         cout << "Eror : \n| you can not play with your self or no-one or more than 4, try again : \n| | enter the number of players again: ";
         cin >> number ; 
     }
+
+    // print number of players ; 
+
     cout << "there is "<< number << " of players in this game \n";
+    
+    //creat board of the game ; 
+
     board a (number);
+
+    //first print for start ; 
+
     a.print () ;
     for (int p = 1 ;  p < number + 1  ; p++)
     {
@@ -50,6 +64,8 @@ int main ()
             if (s=='w')cin>>i>>j;
             if (s=='w')
             {
+                //check for avalbility ; 
+
                 if (a.chekwall(r,i,j)==true)
                 {
                     a.play(p,s,r,i,j);
@@ -57,6 +73,8 @@ int main ()
                 }
                 else 
                 {
+                    //for trying agin dicreasing number of player one time ; 
+
                     p--;
                     cout << "try again\n";
                 }
@@ -75,6 +93,7 @@ int main ()
                 }
             }
         }
+        //for loap ;
         if (p==number )
             p-=number ; 
     }

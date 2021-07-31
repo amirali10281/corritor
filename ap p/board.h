@@ -21,11 +21,15 @@ class board
 public :
     board (int number )
     {
+        //making the board ; 
+
         arr=new char *[13];
         for (int i =0 ; i < 13 ; i++)
         {
             arr[i]=new char [13];
         }
+        //make a wall around the board ; 
+
         for (int i = 0 ; i < 13 ;i++)
             for (int j = 0 ; j< 13 ; j++)
             {
@@ -34,6 +38,8 @@ public :
                 else
                     arr[i][j]='0' ;
             }
+        //set p;ayers' places ; 
+
         if (number == 4 )
         {
             players[1][0]=1;players[1][1]=1;players[2][0]=11;players[2][1]=11;players[3][0]=1;players[3][1]=11;players[4][0]=11;players[4][1]=1;
@@ -53,6 +59,7 @@ public :
         
 
     }
+    //printing the board ; 
 
    void print ()
     {
@@ -61,6 +68,7 @@ public :
         {
             for (int j = 0 ; j< 13 ; j++)
             {
+                //for better visiblity ;
                 if ((arr[i][j]==1||arr[i][j]==2||arr[i][j]==3||arr[i][j]==4))
                 {
                     if (arr[i][j]==1)
@@ -78,6 +86,7 @@ public :
             cout << endl ;
         }
     }
+    //chek for winner ; 
 
     int chekmid()
     {
@@ -97,6 +106,7 @@ public :
         }
         return 0 ; 
     }
+    //chek for wall avalebility ; 
 
     bool chekwall (int r , int i , int j  )
     {
@@ -112,6 +122,7 @@ public :
         }
         return true ; 
     }
+    //check for avalrbility of a place for doing a move ; 
 
     bool chek(int player , int r )
     {
@@ -139,6 +150,8 @@ public :
     }
     void play(int player , char s , int r ,int i =0 , int j = 0  )
     {
+        //for wall play ; 
+
         if (s=='w')
         {
 
@@ -151,6 +164,8 @@ public :
                 arr[i-1][j]=arr[i][j]=arr[i+1][j]='x';
             }
         }
+        //for move play ; 
+
         if (s=='d')
         {
             //cout <<players[p][0] << " " <<players[p][1]<<endl;
@@ -187,6 +202,8 @@ public :
 
 
 private :
+    //board of the game and maximom 4 platers ; 
+    
     char **arr ;
     int players [5][2];
 
